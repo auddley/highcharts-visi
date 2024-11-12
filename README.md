@@ -115,3 +115,90 @@ mainTable.querySelectorAll('tbody tr td:first-child').forEach(el => {
 ```
 
 ## 1.6 Редактирование размера столбиков таблицы
+Размер столбиков меняется через ширину заголовков таблицы *(после инициализации)*:
+```javascript
+const mainTable = document.querySelector('#widget-' + w.general.renderTo + ' .va-widget-body');
+
+// редактирование шапки, изменение размера столбиков
+mainTable.querySelectorAll('thead tr th').forEach((el, index) => {
+    // 1 столбик
+    if (index === 0) {
+        el.style.width = '200px'
+    }
+    
+    // 2 столбик
+    if (index === 1) {
+        el.style.width = '100px'
+    }
+    
+    // 3 столбик
+    if (index === 2) {
+        el.style.width = '150px'
+    }
+    
+    // 4 столбик
+    if (index === 3) {
+        el.style.width = '150px'
+    }
+
+    // и т.д.
+})
+```
+
+## 1.7 Скрытие иконок сортировки в таблице (стрелочек)
+*(после инициализации)*:
+```javascript
+const mainTable = document.querySelector('#widget-' + w.general.renderTo + ' .va-widget-body');
+
+mainTable.querySelectorAll('thead tr th').forEach((el, index) => {
+    if (el.querySelector('.fa.fa-sort')) {
+        el.querySelector('.fa.fa-sort').style.display = 'none';
+    }
+})
+```
+
+## 1.8 Скрытие боковых границ ячеек в таблице
+Скрытие границ в шапке и в строках таблицы *(после инициализации)*:
+```javascript
+const mainTable = document.querySelector('#widget-' + w.general.renderTo + ' .va-widget-body');
+
+// скрытие в шапке
+mainTable.querySelectorAll('thead tr th').forEach((el, index) => {
+    el.style.borderLeft = 'none';
+    el.style.borderRight = 'none';
+})
+
+// скрытие в строках
+mainTable.querySelectorAll('tbody tr').forEach((el, index) => {
+    el.querySelectorAll('td').forEach((_el, _index) => {
+        _el.style.borderLeft = 'none';
+        _el.style.borderRight = 'none';
+    })
+})
+```
+
+## 1.9 Скрытие определенного столбика таблице
+Пример скрытия 4-го столбца таблицы. При необходимости можно изменить число в проверке (index === 9) и (_index === 9), чтобы скрыть, например, 10-й столбец. Заметьте, что индекс в проверке всегда на 1 меньше номера нужного столбца.
+
+Для скрытия нескольких столбцов продублируйте выражение if {}, указав соответствующие индексы столбцов *(после инициализации)*:
+```javascript
+const mainTable = document.querySelector('#widget-' + w.general.renderTo + ' .va-widget-body');
+
+// скрытие в шапке
+mainTable.querySelectorAll('thead tr th').forEach((el, index) => {
+    // 4 столбик
+    if (index === 3) {
+        el.style.display = 'none'
+    }
+})
+
+// скрытие в строках
+mainTable.querySelectorAll('tbody tr').forEach((el, index) => {
+    el.querySelectorAll('td').forEach((_el, _index) => {
+        // 4 столбик
+        if (_index === 3) {
+            _el.style.display = 'none'
+        }
+    })
+})
+```
