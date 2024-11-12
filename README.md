@@ -202,3 +202,88 @@ mainTable.querySelectorAll('tbody tr').forEach((el, index) => {
     })
 })
 ```
+
+## 1.10 Добавление чересполосицы в таблицу (каждая вторая строка голубая)
+*(после инициализации)*:
+```javascript
+const mainTable = document.querySelector('#widget-' + w.general.renderTo + ' .va-widget-body');
+
+mainTable.querySelectorAll('tbody tr').forEach((el, index) => {
+    el.querySelectorAll('td').forEach((_el, _index) => {
+        if (index % 2 !== 0) {
+            _el.style.background = '#EFF7FA'
+        }
+    })
+})
+```
+
+## 1.11 Готовый код для форматирования таблицы в общий дизайн
+Заменить полностью код виджета, инициализация тут присутствует:
+```javascript
+w.data.columns[0].captions = ['Номер'];
+w.data.columns[1].captions = ['Доработка']; 
+
+w.data.rowNames.map(el => {
+    el.map((_el, _index) => {
+        if (_el === '<Пусто>') {
+            el[_index] = ' '
+        }
+    })
+})
+
+TableRender({
+    table: w.general,
+    style: w.style,
+    columns: w.data.columns,
+    records: w.data.records,
+    editMask: w.data.editMask,
+    rowNames: w.data.rowNames,
+    colNames: w.data.colNames,
+    showToolbar: false
+});
+
+const mainTable = document.querySelector('#widget-' + w.general.renderTo + ' .va-widget-body');
+
+// редактирование шапки, изменение размера столбиков
+mainTable.querySelectorAll('thead tr th').forEach((el, index) => {
+    el.style.borderLeft = 'none';
+    el.style.borderRight = 'none';
+
+    if (el.querySelector('.fa.fa-sort')) {
+        el.querySelector('.fa.fa-sort').style.display = 'none';
+    }
+    
+    // 1 столбик
+    if (index === 0) {
+        el.style.width = '110px'
+    }
+    
+    // 2 столбик
+    if (index === 1) {
+        el.style.width = '100px'
+    }
+    
+    // 3 столбик
+    if (index === 2) {
+        el.style.width = '150px'
+    }
+})
+
+// закрепление шапки таблицы
+mainTable.querySelector('thead tr').style.position = 'sticky'
+mainTable.querySelector('thead tr').style.top = '0'
+mainTable.querySelector('thead tr').style.background = 'white'
+
+// удаление лишнего столбика, окрашивание строк в голубой
+mainTable.querySelectorAll('tbody tr').forEach((el, index) => {
+    el.querySelectorAll('td').forEach((_el, _index) => {
+        _el.style.borderLeft = 'none';
+        _el.style.borderRight = 'none';
+        
+        if (_index !== 0) {
+            _el.style.textAlign = 'center';
+        }
+    })
+})
+
+```
