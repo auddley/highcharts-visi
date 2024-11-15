@@ -287,3 +287,15 @@ mainTable.querySelectorAll('tbody tr').forEach((el, index) => {
 })
 
 ```
+
+---
+
+# 2. Редактирование диаграмм Highcharts
+## 2.1 Скрытие белой обводки вокруг цифр
+![image](https://github.com/user-attachments/assets/11ad3d09-741d-4e43-a484-5cc23f9d4c12)
+![image](https://github.com/user-attachments/assets/94780093-2bc8-4902-a07a-787dc19042f7)
+
+*(до инициализации)*:
+```javascript
+wDup.plotOptions.series.dataLabels.style.textOutline = 'none'
+```
