@@ -297,5 +297,5 @@ mainTable.querySelectorAll('tbody tr').forEach((el, index) => {
 
 *(до инициализации)*:
 ```javascript
-wDup.plotOptions.series.dataLabels.style.textOutline = 'none'
+w.plotOptions.series.dataLabels.style.textOutline = 'none'
 ```
