@@ -299,3 +299,30 @@ mainTable.querySelectorAll('tbody tr').forEach((el, index) => {
 ```javascript
 w.plotOptions.series.dataLabels.style.textOutline = 'none'
 ```
+
+---
+
+# 3. Кастомные виджеты
+## 3.1 Скрытие (редактирование) панели навигации
+```javascript
+/*
+Данный код добавить в любой виджет на КАЖДОМ листе дашборда (можно специально выносить за экран виджет с этим кодом). 
+Т.к. стили применяются только при выполнении кода виджета, 
+если добавить виджет с таким кодом например только на первом листе,
+то при открытии дашборда по ссылке на второй лист - наш код с виджета на первом листе не выполнится
+и стили для переключателя между листами в таком случае не применятся
+*/
+
+// Переменная со стилями
+const listStyles = document.createElement('style')
+
+// Стили (Для некоторых css свойств необходимо использовать - !important)
+listStyles.innerHTML = `
+    #va-sheets-navigator-container {
+        display: none;
+    } 
+`
+
+// Заносим стили в DOM
+document.body.appendChild(listStyles)
+```
