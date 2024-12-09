@@ -274,7 +274,6 @@ mainTable.querySelector('thead tr').style.position = 'sticky'
 mainTable.querySelector('thead tr').style.top = '0'
 mainTable.querySelector('thead tr').style.background = 'white'
 
-// удаление лишнего столбика, окрашивание строк в голубой
 mainTable.querySelectorAll('tbody tr').forEach((el, index) => {
     el.querySelectorAll('td').forEach((_el, _index) => {
         _el.style.borderLeft = 'none';
