@@ -299,6 +299,19 @@ mainTable.querySelectorAll('tbody tr').forEach((el, index) => {
 w.plotOptions.series.dataLabels.style.textOutline = 'none'
 ```
 
+## 2.2 Поднятие подписей над bar chart
+![image](https://github.com/user-attachments/assets/a4102c8e-5deb-4f1c-966f-fe537e006ba3)
+![image](https://github.com/user-attachments/assets/c145c1ca-acd9-4c0c-9089-7757f18ef094)
+
+*(до инициализации)*:
+```javascript
+w.xAxis.labels.style.width = '350px' 
+w.xAxis.labels.align = 'left'
+w.xAxis.labels.x = 0
+w.xAxis.labels.y = -15
+w.xAxis.offset = 0
+```
+
 ---
 
 # 3. Кастомные виджеты
