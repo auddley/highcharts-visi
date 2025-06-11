@@ -338,3 +338,17 @@ listStyles.innerHTML = `
 // Заносим стили в DOM
 document.body.appendChild(listStyles)
 ```
+
+---
+
+# 4. Редактирование фильтров
+## 4.1 Фильтр по датам. Добавление нормальной рамки, изменение цвета иконки календарика
+
+Можно задать любой цвет, размер шрифта, скругление *(после инициализации)*:
+```javascript
+// код для настройки видимого текста и рамки
+$('#widget-' + w.general.renderTo + ' .datepicker-here.va-date-filter').attr('style', 'border-color: white !important; border-radius: 0px !important; border-width: 2px !important; color: white !important; padding: 10px !important; text-align: left; font-family: Onest; font-size: 16px;');
+
+// код для иконки календаря
+$('#widget-' + w.general.renderTo + ' .va-date-filter-container > i.fa.fa-calendar').attr('style', 'color: white !important; font-size: 20px !important;');
+```
