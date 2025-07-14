@@ -359,18 +359,13 @@ $('#widget-' + w.general.renderTo + ' .va-date-filter-container > i.fa.fa-calend
 ```javascript
 let filterWid = document.querySelector('#widget-' + w.general.renderTo + ' .rb-filter-header-container')
 
-filterWid.style.border = 'none'
-filterWid.querySelector('.rb-filter-header-text').innerHTML = '<u>Название проекта</u>'
-filterWid.querySelector('.fa.fa-caret-down.rb-filter-header-arrow').style.color = '#2C68BA'
-
+filterWid.querySelector('.rb-filter-header-text').innerHTML = 'Название проекта'
 
 visApi().onSelectedValuesChangedListener({guid: w.general.renderTo + '-->' + w.general.renderTo, widgetGuid: w.general.renderTo }, function (info) {
     let valueLength = info.selectedValues.length
     
     if (valueLength === 0) {
-        filterWid.style.border = 'none'
-        filterWid.querySelector('.rb-filter-header-text').innerHTML = '<u>Название проекта</u>'
-        filterWid.querySelector('.fa.fa-caret-down.rb-filter-header-arrow').style.color = '#2C68BA'
+        filterWid.querySelector('.rb-filter-header-text').innerHTML = 'Название проекта'
     }
 })
 ```
